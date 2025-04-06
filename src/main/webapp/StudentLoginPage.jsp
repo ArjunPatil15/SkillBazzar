@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Admin Login Page</title>
+    <title>Student Login Page</title>
 
     <%@include file="bootStrapSupport.jsp"%>
 
@@ -74,7 +74,7 @@
 
 <body>
 
-<h1>!! Welcome to Skill Bazaar - Admin Login !!</h1>
+<h1>!! Welcome to Skill Bazaar - Student Login !!</h1>
 
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -93,10 +93,10 @@
                     <b>Login As</b>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="StudentLoginPage.jsp">Student</a>
+                    <a class="dropdown-item" href="#">Student</a>
                     <a class="dropdown-item" href="InstructorLoginPage.jsp">Instructor</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Admin</a>
+                    <a class="dropdown-item" href="AdminLoginPage.jsp">Admin</a>
                 </div>
             </li>
         </ul>
@@ -113,16 +113,17 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="AdminLoginValidate" method="post">
+                        <form action="StudentLoginValidate" method="post">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Login Name</label>
                                 <input type="text" class="form-control" id="exampleInputEmail1"
-                                       aria-describedby="emailHelp" placeholder="Enter Login Name" name="loginName" required="required">
+                                       aria-describedby="emailHelp" placeholder="Enter Login Name" name="loginName">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
                                 <input type="password" class="form-control"
-                                       id="exampleInputPassword1" placeholder="Enter Password" name="password" required="required">
+                                       id="exampleInputPassword1" placeholder="Enter Password" name="password">
+                                 
                             </div>
                             <button type="submit" class="btn btn-primary">Login</button>
                         </form>
