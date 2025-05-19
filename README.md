@@ -64,6 +64,7 @@ git clone https://github.com/ArjunPatil15/SkillBazzar.git
 
 2. **Set Up the Database**
 - Create a new MySQL database:
+make changes in url of java/com/skillbazzar/DatabaseConnect.java file as per your database
 ```sql
 CREATE DATABASE skillbazzardb;
 ```
