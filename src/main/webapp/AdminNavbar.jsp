@@ -38,7 +38,7 @@
 
     <!-- Logout Button on the right-most corner -->
     <form class="form-inline my-2 my-lg-0">
-      <a href="AdminLoginPage.jsp" class="btn btn-primary my-2 my-sm-0">Logout</a>
+      <a href="index.jsp" class="btn btn-danger my-2 my-sm-0">Logout</a>
     </form>
   </div>
 </nav>

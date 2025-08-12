@@ -55,6 +55,7 @@ public class InstructorLoginValidate extends HttpServlet {
 				int userid = rs.getInt("userid");
 				HttpSession session = request.getSession();
 	            session.setAttribute("userid", userid); 
+	            session.setAttribute("loginName", loginName);
 				RequestDispatcher view = request.getRequestDispatcher("InstructorMainPage.jsp");
 				view.forward(request, response);
 			}else {

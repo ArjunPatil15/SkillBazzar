@@ -32,9 +32,10 @@
 				</div></li>
 		</ul>
 
-	 <!-- Logout aligned to the right -->
-       <form class="form-inline my-2 my-lg-0">
-      <a href="InstructorLoginPage.jsp" class="btn btn-primary my-2 my-sm-0">Logout</a>
-    </form>
+	<!-- Logout aligned to the right -->
+		<form action="Logout" method="post"
+			class="form-inline my-2 my-lg-0">
+			<button type="submit" class="btn btn-danger my-2 my-sm-0">Logout</button>
+		</form>
 	</div>
 </nav>

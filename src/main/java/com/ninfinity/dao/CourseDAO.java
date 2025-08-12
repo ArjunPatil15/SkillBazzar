@@ -104,13 +104,15 @@ public class CourseDAO {
         List<Course> salesDataList = new ArrayList<>();
 
         try {
-            String query = "SELECT c.title, c.description, c.price, u.username AS instructorName, " +
-                           "       COUNT(DISTINCT sp.userid) AS salesCount " +
-                           "FROM courses c " +
-                           "LEFT JOIN studentprogress sp ON c.courseid = sp.courseid AND sp.progressstatus = 'Enrolled' " +
-                           "LEFT JOIN usertable u ON c.userid = u.userid " +
-                           "WHERE u.role = 'instructor' " +
-                           "GROUP BY c.courseid";
+        	 String query = "SELECT c.title, c.description, c.price, u.username AS instructorName, " +
+                     "       COUNT(DISTINCT sp.userid) AS salesCount " +
+                     "FROM courses c " +
+                     "LEFT JOIN studentprogress sp ON c.courseid = sp.courseid AND sp.progressstatus = 'Enrolled' " +
+                     "LEFT JOIN usertable u ON c.userid = u.userid " +
+                     "WHERE u.role = 'instructor' " +
+                     "GROUP BY c.courseid " +
+                     "ORDER BY salesCount DESC"; // Sorting by sales count
+
 
             PreparedStatement pstmt = con.prepareStatement(query);
             ResultSet rs = pstmt.executeQuery();
