@@ -102,7 +102,7 @@ h1 {
 				<div class="carousel-item">
 					<img
 						src="https://i.ytimg.com/vi/ZVTLndiTWQ8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBKHH3rqMkEmN9J0JeAhFPl8brgMQ"
-						alt="Image 4">
+						class="d-block w-100" alt="Image 4">
 				</div>
 			</div>
 
