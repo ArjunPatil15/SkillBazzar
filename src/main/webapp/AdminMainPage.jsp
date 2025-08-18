@@ -1,15 +1,15 @@
 <%@page import="com.ninfinity.entities.Course"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>Admin Main Page</title>
+    <meta charset="ISO-8859-1">
+    <title>Admin Main Page</title>
+    
+    <%@include file="bootStrapSupport.jsp"%>
 
-<%@include file="bootStrapSupport.jsp"%>
-
-<style>
+    <style>
 body {
 	background: linear-gradient(to right, #74ebd5, #9face6);
 	/* Gradient background */
@@ -27,60 +27,53 @@ h1 {
 	text-shadow: 2px 2px #000;
 }
 
-.navbar {
-	background-color: #007bff;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.card {
-	border-radius: 15px;
-	background-color: white;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-	padding: 20px;
-}
-
-.card-header {
-	background-color: #343a40;
+h2 {
 	color: white;
 	text-align: center;
-	border-radius: 15px 15px 0 0;
-	padding: 15px 0;
-}
-
-.form-control {
-	border-radius: 10px;
-}
-
-.btn-primary {
-	width: 100%;
-	border-radius: 10px;
-	background: linear-gradient(45deg, #007bff, #00c6ff);
-	border: none;
-	font-size: 1.2rem;
+	margin-top: 20px;
 	font-weight: bold;
-	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	font-size: 2.5rem;
+	text-shadow: 2px 2px #000;
 }
 
-.btn-primary:hover {
-	background: linear-gradient(45deg, #0056b3, #00aaff);
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.carousel-item img {
+	width: 100%; /* Full width */
+	height: auto; /* Keep aspect ratio to prevent cropping */
+	max-height: 400px; /* Limit the image height to 400px */
+	border-radius: 10px; /* Optional rounded corners */
 }
 
-.form-group label {
-	font-weight: bold;
-	color: #333;
+.carousel-control-prev-icon, .carousel-control-next-icon {
+	background-color: black; /* Set arrow background to black */
+	border-radius: 50%; /* Round arrow background */
+	width: 40px; /* Adjust arrow width */
+	height: 40px;
+}
+
+.carousel-container {
+	position: relative;
+	padding-top: 20px;
+}
+
+.course-card img {
+	height: 200px;
+	object-fit: cover; /* Ensure images are proportional */
+	border-radius: 10px 10px 0 0;
+}
+
+.course-card .card-body {
+	text-align: center;
 }
 </style>
 </head>
 
 <body>
-	<h1>SkillBazaar</h1>
+    <h1>SkillBazaar</h1>
+    
 
-
-	<!-- Including the Admin Navigation Bar -->
-	<%@include file="AdminNavbar.jsp"%>
-
-	<!-- Carousel Section -->
+    <!-- Including the Admin Navigation Bar -->
+    <%@include file="AdminNavbar.jsp"%>
+    <!-- Carousel Section -->
 	<div class="container my-4 carousel-container">
 		<div id="imageCarousel" class="carousel slide" data-ride="carousel"
 			data-interval="2000">
@@ -102,7 +95,7 @@ h1 {
 				<div class="carousel-item">
 					<img
 						src="https://i.ytimg.com/vi/ZVTLndiTWQ8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBKHH3rqMkEmN9J0JeAhFPl8brgMQ"
-						class="d-block w-100" alt="Image 4">
+						alt="Image 4">
 				</div>
 			</div>
 
@@ -164,8 +157,10 @@ h1 {
 			</div>
 		</div>
 	</div>
+    
 
 
 
+    
 </body>
 </html>

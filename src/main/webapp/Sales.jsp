@@ -1,18 +1,16 @@
 <%@page import="com.ninfinity.entities.Course"%>
-<%@page import="com.ninfinity.dao.CourseDAO"%>
-<%@page import="com.ninfinity.dao.DatabaseConnect"%>
-<%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Admin Display Sales</title>
+    <title>Admin Sales Report</title>
     <%@include file="bootStrapSupport.jsp"%>
 
     <style>
         body {
-            background: linear-gradient(to right, #74ebd5, #9face6);
+            background: linear-gradient(to right, #74ebd5, #9face6); /* Gradient background */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -68,12 +66,26 @@
         }
     </style>
 </head>
+
 <body>
-    <h1>Course Sales Report</h1>
+    <h1>SkillBazaar</h1>
+
+    <!-- Including the Admin Navigation Bar -->
     <%@include file="AdminNavbar.jsp"%>
-    
+
+    <%@page import="com.ninfinity.dao.CourseDAO"%>
+    <%@page import="com.ninfinity.dao.DatabaseConnect"%>
+    <%@page import="java.util.List"%>
+
+    <%
+        // Fetch course sales data from the DAO
+        CourseDAO courseDAO = new CourseDAO(DatabaseConnect.connect());
+        List<Course> courseSalesList = courseDAO.getCourseSalesDetails();
+    %>
+
     <div class="container">
-        <h2>Sales Details</h2>
+        <h2>Course Sales Report</h2>
+
         <table class="table">
             <thead>
                 <tr>
@@ -85,10 +97,7 @@
                 </tr>
             </thead>
             <tbody>
-                <%  
-                    CourseDAO courseDAO = new CourseDAO(DatabaseConnect.connect());
-                    List<Course> courseSalesList = courseDAO.getCourseSalesDetails();
-                    
+                <%
                     if (courseSalesList != null && !courseSalesList.isEmpty()) {
                         for (Course data : courseSalesList) {
                 %>
@@ -112,5 +121,6 @@
             </tbody>
         </table>
     </div>
+
 </body>
 </html>

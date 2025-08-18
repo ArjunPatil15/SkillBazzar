@@ -4,123 +4,160 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Create Account - Skill-Bazzar</title>
+<title>Create Account Page</title>
 
 <%@include file="bootStrapSupport.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<style>
+body {
+	background: linear-gradient(to right, #74ebd5, #9face6);
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	margin-top: 20px;
+	font-weight: bold;
+	font-size: 2.5rem;
+	text-shadow: 2px 2px #000;
+}
+
+.navbar {
+	background-color: #007bff;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card {
+	border-radius: 15px;
+	background-color: white;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	padding: 20px;
+}
+
+.card-header {
+	background-color: #343a40;
+	color: white;
+	text-align: center;
+	border-radius: 15px 15px 0 0;
+	padding: 15px 0;
+}
+
+.form-control {
+	border-radius: 10px;
+}
+
+.btn-primary {
+	width: 100%;
+	border-radius: 10px;
+	background: linear-gradient(45deg, #007bff, #00c6ff);
+	border: none;
+	font-size: 1.2rem;
+	font-weight: bold;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+	background: linear-gradient(45deg, #0056b3, #00aaff);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.form-group label {
+	font-weight: bold;
+	color: #333;
+}
+</style>
 </head>
 
 <body>
-	<div class="container">
-		<h1 class="fade-in-up">✨ Create Your Account</h1>
-		<p class="text-center text-white mb-4" style="font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.5);">
-			Join thousands of learners and start your educational journey today
-		</p>
 
-		<%@include file="NavigationBar.jsp"%>
+	<h1>!! Welcome to Skill Bazaar - Account Creation!!</h1>
 
-		<div class="row justify-content-center">
-			<div class="col-lg-8 col-md-10 col-sm-12">
-				<div class="main-content fade-in-up">
+	<!-- Navigation Bar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+		<a class="navbar-brand text-white" href="#">SkillBazaar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link text-white"
+					href="index.jsp">Home <span class="sr-only">(current)</span></a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle text-white" href="#"
+					id="navbarDropdown" role="button" data-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false"> <b>Login As</b>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="StudentLoginPage.jsp">Student</a> <a
+							class="dropdown-item" href="InstructorLoginPage.jsp">Instructor</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="AdminLoginPage.jsp">Admin</a>
+					</div></li>
+			</ul>
+		</div>
+	</nav>
+
+	<main>
+		<div class="container mt-4">
+			<div class="row justify-content-center">
+				<div class="col-md-6">
 					<div class="card">
-						<div class="card-header text-center">
-							<h3>🚀 Account Registration</h3>
+						<div class="card-header">
+							<h2>Create Account</h2>
+
 						</div>
+						
+							<!-- Success Message Display -->
+							<c:if test="${not empty sessionScope.success}">
+								<div class="alert alert-success text-center" role="alert">
+									${sessionScope.success}</div>
+								<c:remove var="success" scope="session" />
+							</c:if>
+
+
+
 						<div class="card-body">
 							<form action="AddAccountController" method="post">
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<label for="username" class="form-label">👤 Username</label>
-											<input type="text" class="form-control" id="username" name="username" 
-												placeholder="Choose a unique username" required>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label for="email" class="form-label">📧 Email Address</label>
-											<input type="email" class="form-control" id="email" name="email" 
-												placeholder="Enter your email address" required>
-										</div>
-									</div>
+								<div class="form-group">
+									<label for="exampleInputEmail1">Login Name</label> <input
+										type="text" class="form-control" id="exampleInputEmail1"
+										aria-describedby="emailHelp" placeholder="Enter Login Name"
+										name="username">
 								</div>
-
-								<div class="row">
-									<div class="col-md-6">
-										<div class="form-group">
-											<label for="password" class="form-label">🔒 Password</label>
-											<input type="password" class="form-control" id="password" name="password" 
-												placeholder="Create a strong password" required>
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label for="role" class="form-label">🎯 Account Type</label>
-											<select class="form-control" id="role" name="role" required>
-												<option value="">Select your role</option>
-												<option value="student">👨‍🎓 Student</option>
-												<option value="instructor">👨‍🏫 Instructor</option>
-											</select>
-										</div>
-									</div>
+								<div class="form-group">
+									<label for="exampleInputEmail1">Email </label> <input
+										type="email" class="form-control" id="exampleInputEmail1"
+										aria-describedby="emailHelp" placeholder="Enter Email"
+										name="email">
 								</div>
-
-								<div class="form-group text-center">
-									<button type="submit" class="btn btn-primary btn-lg">
-										<span style="margin-right: 8px;">✨</span>Create Account
-									</button>
+								<div class="form-group">
+									<label for="role">Select Role</label> <select
+										class="form-control" id="role" name="role">
+										<option value="Student">Student</option>
+										<option value="Instructor">Instructor</option>
+									</select>
 								</div>
-
-								<div class="text-center mt-3">
-									<p class="mb-2">Already have an account?</p>
-									<a href="StudentLoginPage.jsp" class="btn btn-success mr-2">
-										<span style="margin-right: 5px;">🔐</span>Student Login
-									</a>
-									<a href="InstructorLoginPage.jsp" class="btn btn-info">
-										<span style="margin-right: 5px;">👨‍🏫</span>Instructor Login
-									</a>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Password</label> <input
+										type="password" class="form-control"
+										id="exampleInputPassword1" placeholder="Enter Password"
+										name="password">
 								</div>
+								<button type="submit" class="btn btn-primary">Create</button>
 							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<!-- Benefits Section -->
-		<div class="row mt-5">
-			<div class="col-lg-4 col-md-6 mb-4">
-				<div class="card h-100">
-					<div class="card-header text-center">
-						<h4>🎓 Learn Anywhere</h4>
-					</div>
-					<div class="card-body text-center">
-						<p class="card-text">Access your courses from any device, anytime, anywhere in the world.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 mb-4">
-				<div class="card h-100">
-					<div class="card-header text-center">
-						<h4>📈 Track Progress</h4>
-					</div>
-					<div class="card-body text-center">
-						<p class="card-text">Monitor your learning journey with detailed progress tracking and analytics.</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 mb-4">
-				<div class="card h-100">
-					<div class="card-header text-center">
-						<h4>🏆 Earn Certificates</h4>
-					</div>
-					<div class="card-body text-center">
-						<p class="card-text">Get recognized for your achievements with professional certificates.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	</main>
 </body>
 </html>
